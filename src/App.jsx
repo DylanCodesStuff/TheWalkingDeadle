@@ -15,7 +15,7 @@ function App() {
       const randomSolution = data.hardSolutions[Math.floor(Math.random() * data.hardSolutions.length)];
       setSolution(randomSolution.word);
     }
-  }, [setSolution]);
+  }, [solution]);
 
   return (
     <div className={`${darkMode ? "App-darkmode" : "App"} ${difficulty === "hard" ? "App-hardMode" : ""}`}>

@@ -4,8 +4,6 @@ import React from "react";
 //destructured from Grid.jsx
 
 export default function Row({ guess, currentGuess, solution, difficulty }) {
-  const testDummy = [...Array(8)];
-
   if (guess) {
     return (
       <div className="row past">

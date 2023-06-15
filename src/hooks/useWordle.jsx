@@ -7,6 +7,17 @@ const useWordle = (solution) => {
   const [history, setHistory] = useState([]); // each guess is a string
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
+
+  function resetState() {
+    setTurn(0);
+    setCurrentGuess("");
+    setGuesses([...Array(6)]);
+    setHistory([]);
+    setIsCorrect(false);
+    setUsedKeys({});
+    console.log(solution, isCorrect, turn);
+  }
+
   const formatGuess = () => {
     let solutionArray = [...solution];
     let formattedGuess = [...currentGuess].map((letter) => {
@@ -81,7 +92,7 @@ const useWordle = (solution) => {
       }
 
       if (currentGuess.length !== solution.length) {
-        console.log("Word must be 5 characters long.");
+        console.log("Word must use all the squares.");
         return;
       }
       const formatted = formatGuess();
@@ -111,6 +122,7 @@ const useWordle = (solution) => {
     usedKeys,
     solution,
     handleKeyup,
+    resetState,
   };
 };
 

@@ -1,16 +1,17 @@
 import React from "react";
 import { data } from "../../data/db";
-export default function Modal({ isCorrect, turn, solution, setSolution, difficulty, setShowModal, darkMode }) {
+export default function Modal({ isCorrect, turn, solution, setSolution, difficulty, setShowModal, darkMode, resetState }) {
   function handlePlayAgain() {
-    if (difficulty == "easy") {
-      const randomSolution = data.solutions[Math.floor(Math.random() * data.solutions.length)];
-      setSolution(randomSolution.word);
-    } else if (difficulty == "hard") {
-      const randomSolution = data.hardSolutions[Math.floor(Math.random() * data.hardSolutions.length)];
-      setSolution(randomSolution.word);
-    }
-    setSolution(false);
+    // if (difficulty == "easy") {
+    //   const randomSolution = data.solutions[Math.floor(Math.random() * data.solutions.length)];
+    //   setSolution(randomSolution.word);
+    // } else if (difficulty == "hard") {
+    //   const randomSolution = data.hardSolutions[Math.floor(Math.random() * data.hardSolutions.length)];
+    //   setSolution(randomSolution.word);
+    // }
+    resetState();
     setShowModal(false);
+    setSolution("");
   }
 
   return (

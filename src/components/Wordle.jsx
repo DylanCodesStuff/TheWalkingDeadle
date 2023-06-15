@@ -6,7 +6,7 @@ import Modal from "./Modal";
 //destructor the solution directly
 export default function Wordle({ solution, darkMode, setSolution, difficulty }) {
   //returned from bottom of useWordle file.
-  const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } = useWordle(solution);
+  const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys, resetState } = useWordle(solution);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -26,18 +26,27 @@ export default function Wordle({ solution, darkMode, setSolution, difficulty }) 
       window.removeEventListener("keyup", handleKeyup);
     }
     return () => window.removeEventListener("keyup", handleKeyup);
-  }, [handleKeyup, isCorrect, turn]);
+  }, [handleKeyup, turn]);
 
-  useEffect(() => {
-    console.log(guesses, turn, isCorrect);
-  }, [guesses, turn, isCorrect]);
+  // useEffect(() => {
+  //   console.log(guesses, turn, isCorrect);
+  // }, [guesses, turn, isCorrect]);
 
   return (
     <>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} solution={solution} difficulty={difficulty} />
       <Keypad usedKeys={usedKeys} darkMode={darkMode} />
       {showModal && (
-        <Modal darkMode={darkMode} setShowModal={setShowModal} isCorrect={isCorrect} turn={turn} difficulty={difficulty} solution={solution} setSolution={setSolution} />
+        <Modal
+          darkMode={darkMode}
+          resetState={resetState}
+          setShowModal={setShowModal}
+          isCorrect={isCorrect}
+          turn={turn}
+          difficulty={difficulty}
+          solution={solution}
+          setSolution={setSolution}
+        />
       )}
     </>
   );
