@@ -34,7 +34,6 @@ export const data = {
     { id: 4, word: "michonne" },
     { id: 6, word: "glenn" },
     { id: 7, word: "carl" },
-    { id: 8, word: "negan" },
     { id: 10, word: "abraham" },
     { id: 16, word: "alpha" },
     { id: 17, word: "beta" },
@@ -49,7 +48,6 @@ export const data = {
     { id: 31, word: "lori" },
     { id: 34, word: "thegovernor" },
     { id: 35, word: "dwight" },
-    { id: 38, word: "negan" },
   ],
   hardSolutions: [
     { id: 19, word: "morganjones" },

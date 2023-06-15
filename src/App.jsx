@@ -18,7 +18,7 @@ function App() {
   }, [setSolution]);
 
   return (
-    <div className={`${darkMode ? "App-darkmode" : "App"} ${difficulty === "hard" ? "App-hardMode" : null}`}>
+    <div className={`${darkMode ? "App-darkmode" : "App"} ${difficulty === "hard" ? "App-hardMode" : ""}`}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} difficulty={difficulty} setDifficulty={setDifficulty} />
       {solution && <Wordle solution={solution} darkMode={darkMode} setSolution={setSolution} difficulty={difficulty} />}
     </div>
